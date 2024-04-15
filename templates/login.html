@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Авторизация</h1>
+    <form action="", method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.email.label }}<br>
+            {{ form.email(type="email") }}<br>
+            {% for error in form.email.errors %}
+                {{ error }}
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(type="password") }}
+            {% for error in form.password.errors %}
+                {{ error }}
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.remember_me() }} {{ form.remember_me.label }}<br>
+        </p>
+        <p>
+            {{ form.submit(type="submit") }}
+        </p>
+        <div>{{ message }}</div>
+    </form>
+{% endblock %}
